@@ -13,12 +13,13 @@ def hello_world():
 @app.route('/get_movie_names')
 def get_movie_names():
     response = util.get_movie_names()
-    
+    listToStr = ' , '.join([str(elem) for i,elem in enumerate(response)])
     #response.header.add('Acess-Control-Allow-Origin','*')
-    return response
+    return listToStr
 
 @app.route('/recommend_movies',methods=['POST'])
 def recommend_movie_names():
+    print(str(request.form['s_movie']))
     movie = str(request.form['selected_movie'])
     recommendation = util.recommend(movie)
     r1 = recommendation[0]

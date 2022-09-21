@@ -1,3 +1,13 @@
+<?php
+$rm = false;
+if(isset($_POST['selected_movie'])){
+
+$rm = true;
+}
+?>
+
+
+
 <html>
   <head>
     <meta charset="utf-8">
@@ -59,28 +69,27 @@
     <section class="recommend">
         <h1> Movies </h1>
         <br>
-        <form action='/recommend_movies' method="POST">
+        <form action='/recommend_movies' method="POST" name="selected_mvoie">
         <div class="container">
         <div class="row">
 
             <div class="input-group">
-              <input type="text" class="form-control"name="s_movie"> 
-              
+              <input type="text" class="form-control" placeholder="Enter the Movie Name" name="selected_movie">
       <div class="input-group-append">
-        <select id="selected_movie" name="selected_movie">
-          <option selected="true" disabled="disabled">Select a Movie</option> 
-    
-    
-        </select>
         <button type="submit" class="input-group-text btn">Recommend</button>
       </div>
     </div>
-    
   </form>
+
+
+<?php
+
+if($rm){
+
+    echo '
   
   
     <section class="features">
-      {% if movie1 %}
         <h1>Recommendated Movies</h1>
         <div class="container">
           <div class="row">
@@ -181,10 +190,12 @@
       </div>
 
     </div>
-    {% endif %}
- 
+    
+
     </section>
-</section>
+</section>';
+}
+?>
 
 <section class="footer">
         <br>

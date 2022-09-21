@@ -26,6 +26,9 @@ def fetch_overview(movie_id):
    return data['overview']
 
 def recommend(movie):
+    
+    movie = movie.strip()
+    print(movie)
     index = ind(movie)
     distances = sorted(list(enumerate(similarity[index])),reverse=True,key = lambda x: x[1])
     recommended_movies = []
