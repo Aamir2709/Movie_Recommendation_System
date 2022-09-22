@@ -1,6 +1,6 @@
 function onPageLoad(){
     console.log("document loaded");
-    var url = "http://127.0.0.1:5000/get_movie_names";
+    var url = "https://movierecommender.onrender.com/get_movie_names";
     // fetch(url,function(data,status){
     //     console.log("got response from get_movie_names request");
     //     if(data){
